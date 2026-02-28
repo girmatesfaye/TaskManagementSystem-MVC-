@@ -1,49 +1,143 @@
 /* /Views/Shared/_Layout.cshtml.rz.scp.css */
-/* Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
-for details on configuring this project to bundle and minify static web assets. */
+.app-shell[b-8wjjqfk2c0] {
+  background-color: var(--bs-tertiary-bg);
+}
 
-a.navbar-brand[b-8wjjqfk2c0] {
+.app-sidebar[b-8wjjqfk2c0] {
+  width: 260px;
+  flex-shrink: 0;
+  background-color: var(--bs-body-bg);
+}
+
+.app-sidebar .navbar-brand[b-8wjjqfk2c0] {
   white-space: normal;
-  text-align: center;
-  word-break: break-all;
+  word-break: break-word;
 }
 
-a[b-8wjjqfk2c0] {
-  color: #0077cc;
+.brand-logo[b-8wjjqfk2c0] {
+  width: 24px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  background-color: var(--bs-primary);
+  color: var(--bs-white);
+  font-size: 10px;
 }
 
-.btn-primary[b-8wjjqfk2c0] {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+.app-sidebar .nav-link[b-8wjjqfk2c0] {
+  color: var(--bs-body-color);
+  border-radius: 0.6rem;
+  padding: 0.55rem 0.75rem;
 }
 
-.nav-pills .nav-link.active[b-8wjjqfk2c0], .nav-pills .show > .nav-link[b-8wjjqfk2c0] {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+.app-sidebar .nav-link.active[b-8wjjqfk2c0] {
+  background-color: var(--bs-primary-bg-subtle);
+  color: var(--bs-primary-text-emphasis);
 }
 
-.border-top[b-8wjjqfk2c0] {
-  border-top: 1px solid #e5e5e5;
-}
-.border-bottom[b-8wjjqfk2c0] {
-  border-bottom: 1px solid #e5e5e5;
-}
-
-.box-shadow[b-8wjjqfk2c0] {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
-}
-
-button.accept-policy[b-8wjjqfk2c0] {
-  font-size: 1rem;
-  line-height: inherit;
+.avatar[b-8wjjqfk2c0] {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: var(--bs-secondary-bg);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.72rem;
+  font-weight: 600;
 }
 
-.footer[b-8wjjqfk2c0] {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px;
+.app-topbar[b-8wjjqfk2c0] {
+  background-color: var(--bs-body-bg);
+}
+
+.topbar-tools .form-control[b-8wjjqfk2c0] {
+  width: 240px;
+}
+
+.app-content[b-8wjjqfk2c0] {
+  overflow: auto;
+}
+
+.dashboard-grid[b-8wjjqfk2c0] {
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .dashboard-grid[b-8wjjqfk2c0] {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 992px) {
+  .dashboard-grid[b-8wjjqfk2c0] {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1400px) {
+  .dashboard-grid[b-8wjjqfk2c0] {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.recent-header[b-8wjjqfk2c0] {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.metric-card[b-8wjjqfk2c0] {
+  background-color: var(--bs-body-bg);
+}
+
+.metric-icon[b-8wjjqfk2c0] {
+  width: 30px;
+  height: 30px;
+  border-radius: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+}
+
+.metric-blue[b-8wjjqfk2c0] {
+  background-color: var(--bs-primary-bg-subtle);
+  color: var(--bs-primary-text-emphasis);
+}
+.metric-green[b-8wjjqfk2c0] {
+  background-color: var(--bs-success-bg-subtle);
+  color: var(--bs-success-text-emphasis);
+}
+.metric-amber[b-8wjjqfk2c0] {
+  background-color: var(--bs-warning-bg-subtle);
+  color: var(--bs-warning-text-emphasis);
+}
+.metric-red[b-8wjjqfk2c0] {
+  background-color: var(--bs-danger-bg-subtle);
+  color: var(--bs-danger-text-emphasis);
+}
+
+@media (max-width: 767.98px) {
+  .app-shell[b-8wjjqfk2c0] {
+    flex-direction: column;
+  }
+
+  .app-sidebar[b-8wjjqfk2c0] {
+    width: 100%;
+    border-right: 0;
+    border-bottom: 1px solid var(--bs-border-color);
+  }
+
+  .topbar-tools .form-control[b-8wjjqfk2c0] {
+    width: 150px;
+  }
+
+  .recent-header[b-8wjjqfk2c0] {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }

@@ -213,7 +213,6 @@ C:\Users\Dev Girma\TaskManagementSystem\obj\Debug\net10.0\compressed\a3ygkwa5zy-
 C:\Users\Dev Girma\TaskManagementSystem\obj\Debug\net10.0\compressed\nezrqnk58p-{0}-muycvpuwrr-muycvpuwrr.gz
 C:\Users\Dev Girma\TaskManagementSystem\obj\Debug\net10.0\compressed\v0zgfp0y55-{0}-87fc7y1x7t-87fc7y1x7t.gz
 C:\Users\Dev Girma\TaskManagementSystem\obj\Debug\net10.0\compressed\yfc7ypekbg-{0}-mlv21k5csn-mlv21k5csn.gz
-C:\Users\Dev Girma\TaskManagementSystem\obj\Debug\net10.0\compressed\8tfljht93h-{0}-b9sayid5wm-b9sayid5wm.gz
 C:\Users\Dev Girma\TaskManagementSystem\obj\Debug\net10.0\compressed\6abbwoxm5s-{0}-61n19gt1b8-61n19gt1b8.gz
 C:\Users\Dev Girma\TaskManagementSystem\obj\Debug\net10.0\compressed\3u6lzl4f3k-{0}-xtxxf3hu2r-xtxxf3hu2r.gz
 C:\Users\Dev Girma\TaskManagementSystem\obj\Debug\net10.0\compressed\oedy716gku-{0}-bqjiyaj88i-bqjiyaj88i.gz
@@ -275,8 +274,6 @@ C:\Users\Dev Girma\TaskManagementSystem\obj\Debug\net10.0\compressed\pztywxa4si-
 C:\Users\Dev Girma\TaskManagementSystem\obj\Debug\net10.0\compressed\zafjlkbzlt-{0}-muycvpuwrr-muycvpuwrr.gz
 C:\Users\Dev Girma\TaskManagementSystem\obj\Debug\net10.0\compressed\gly6o4typx-{0}-87fc7y1x7t-87fc7y1x7t.gz
 C:\Users\Dev Girma\TaskManagementSystem\obj\Debug\net10.0\compressed\hwxtuga16k-{0}-mlv21k5csn-mlv21k5csn.gz
-C:\Users\Dev Girma\TaskManagementSystem\obj\Debug\net10.0\compressed\5rw23hnndx-{0}-4ugdy78x15-4ugdy78x15.gz
-C:\Users\Dev Girma\TaskManagementSystem\obj\Debug\net10.0\compressed\d9ws1i0ekv-{0}-4ugdy78x15-4ugdy78x15.gz
 C:\Users\Dev Girma\TaskManagementSystem\obj\Debug\net10.0\staticwebassets.build.json
 C:\Users\Dev Girma\TaskManagementSystem\obj\Debug\net10.0\staticwebassets.build.json.cache
 C:\Users\Dev Girma\TaskManagementSystem\obj\Debug\net10.0\staticwebassets.development.json
@@ -288,3 +285,6 @@ C:\Users\Dev Girma\TaskManagementSystem\obj\Debug\net10.0\refint\TaskManagementS
 C:\Users\Dev Girma\TaskManagementSystem\obj\Debug\net10.0\TaskManagementSystem.pdb
 C:\Users\Dev Girma\TaskManagementSystem\obj\Debug\net10.0\TaskManagementSystem.genruntimeconfig.cache
 C:\Users\Dev Girma\TaskManagementSystem\obj\Debug\net10.0\ref\TaskManagementSystem.dll
+c:\Users\Dev Girma\TaskManagementSystem\obj\Debug\net10.0\compressed\5rw23hnndx-{0}-yj82z7dq9u-yj82z7dq9u.gz
+c:\Users\Dev Girma\TaskManagementSystem\obj\Debug\net10.0\compressed\d9ws1i0ekv-{0}-yj82z7dq9u-yj82z7dq9u.gz
+c:\Users\Dev Girma\TaskManagementSystem\obj\Debug\net10.0\compressed\8tfljht93h-{0}-mj7vxbgfsw-mj7vxbgfsw.gz

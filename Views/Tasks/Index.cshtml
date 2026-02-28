@@ -1,0 +1,71 @@
+@model IEnumerable<TaskItem>
+
+@{
+	ViewData["Title"] = "My Tasks";
+}
+
+<section class="recent-section premium-surface border rounded-3 bg-body">
+	<div class="recent-header px-3 py-3 border-bottom">
+		<h5 class="mb-0">My Tasks</h5>
+		<a asp-controller="Tasks" asp-action="Create" class="btn btn-sm btn-primary">Create Task</a>
+	</div>
+
+	@if (!Model.Any())
+	{
+		<div class="p-4 text-center text-body-secondary">
+			No tasks yet. Create your first task to get started.
+		</div>
+	}
+	else
+	{
+		<div class="table-responsive">
+			<table class="table premium-table mb-0 align-middle">
+				<thead>
+					<tr>
+						<th class="text-uppercase small text-body-secondary">Task</th>
+						<th class="text-uppercase small text-body-secondary">Due Date</th>
+						<th class="text-uppercase small text-body-secondary">Priority</th>
+						<th class="text-uppercase small text-body-secondary">Status</th>
+						<th class="text-uppercase small text-body-secondary text-end">Actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					@foreach (var item in Model)
+					{
+						<tr>
+							<td>
+								<div class="fw-semibold">@item.Title</div>
+								<small class="text-body-secondary">@item.Description</small>
+							</td>
+							<td>@item.DueDate.ToString("MMM dd, yyyy")</td>
+							<td>
+								<span class="badge text-bg-secondary-subtle text-secondary-emphasis">@item.Priority</span>
+							</td>
+							<td>
+								@if (item.Status.Equals("Completed", StringComparison.OrdinalIgnoreCase))
+								{
+									<span class="badge text-bg-success-subtle text-success-emphasis">Completed</span>
+								}
+								else
+								{
+									<span class="badge text-bg-warning-subtle text-warning-emphasis">Pending</span>
+								}
+							</td>
+							<td class="text-end">
+								<div class="d-inline-flex gap-1 flex-wrap justify-content-end">
+									<a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-outline-primary">Details</a>
+									<a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-secondary">Edit</a>
+									<form asp-action="ToggleStatus" asp-route-id="@item.Id" method="post" class="d-inline">
+										@Html.AntiForgeryToken()
+										<button type="submit" class="btn btn-sm btn-outline-success">Toggle</button>
+									</form>
+									<a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-outline-danger">Delete</a>
+								</div>
+							</td>
+						</tr>
+					}
+				</tbody>
+			</table>
+		</div>
+	}
+</section>

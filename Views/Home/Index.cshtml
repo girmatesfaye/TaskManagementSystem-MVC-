@@ -1,8 +1,108 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Dashboard";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<section class="dashboard-grid d-grid gap-3 mb-4">
+    <article class="metric-card border rounded-3 p-3">
+        <div class="d-flex justify-content-between align-items-start mb-2">
+            <span class="metric-icon metric-blue">■</span>
+            <span class="badge text-bg-success-subtle text-success-emphasis">+12%</span>
+        </div>
+        <small class="text-body-secondary d-block">Total Tasks</small>
+        <h2 class="mb-0">124</h2>
+    </article>
+
+    <article class="metric-card border rounded-3 p-3">
+        <div class="d-flex justify-content-between align-items-start mb-2">
+            <span class="metric-icon metric-green">✓</span>
+            <span class="badge text-bg-success-subtle text-success-emphasis">+5%</span>
+        </div>
+        <small class="text-body-secondary d-block">Completed</small>
+        <h2 class="mb-0">86</h2>
+    </article>
+
+    <article class="metric-card border rounded-3 p-3">
+        <div class="d-flex justify-content-between align-items-start mb-2">
+            <span class="metric-icon metric-amber">◔</span>
+            <span class="badge text-bg-danger-subtle text-danger-emphasis">-2%</span>
+        </div>
+        <small class="text-body-secondary d-block">Pending</small>
+        <h2 class="mb-0">32</h2>
+    </article>
+
+    <article class="metric-card border rounded-3 p-3">
+        <div class="d-flex justify-content-between align-items-start mb-2">
+            <span class="metric-icon metric-red">⚠</span>
+            <span class="badge text-bg-secondary-subtle text-secondary-emphasis">0%</span>
+        </div>
+        <small class="text-body-secondary d-block">Overdue</small>
+        <h2 class="mb-0">6</h2>
+    </article>
+</section>
+
+<section class="recent-section premium-surface border rounded-3 bg-body">
+    <div class="recent-header px-3 py-3 border-bottom">
+        <h5 class="mb-0">Recent Tasks</h5>
+        <a asp-controller="Tasks" asp-action="Index" class="text-decoration-none">View All →</a>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table premium-table mb-0 align-middle">
+            <thead>
+                <tr>
+                    <th class="text-uppercase small text-body-secondary">Task Name</th>
+                    <th class="text-uppercase small text-body-secondary">Due Date</th>
+                    <th class="text-uppercase small text-body-secondary">Status</th>
+                    <th class="text-uppercase small text-body-secondary">Priority</th>
+                    <th class="text-uppercase small text-body-secondary text-end">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="fw-semibold">Fix Login Bug</div>
+                        <small class="text-body-secondary">Authentication Module</small>
+                    </td>
+                    <td>Oct 24, 2023</td>
+                    <td><span class="badge text-bg-primary-subtle text-primary-emphasis">In Progress</span></td>
+                    <td><span class="badge text-bg-danger-subtle text-danger-emphasis">High</span></td>
+                    <td class="text-end"><a href="#" class="btn btn-sm btn-outline-primary">View Details →</a></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="fw-semibold">Update Homepage</div>
+                        <small class="text-body-secondary">Frontend Redesign</small>
+                    </td>
+                    <td>Oct 25, 2023</td>
+                    <td><span class="badge text-bg-secondary-subtle text-secondary-emphasis">Pending</span></td>
+                    <td><span class="badge text-bg-warning-subtle text-warning-emphasis">Medium</span></td>
+                    <td class="text-end"><a href="#" class="btn btn-sm btn-outline-primary">View Details →</a></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="fw-semibold">Database Backup</div>
+                        <small class="text-body-secondary">Maintenance</small>
+                    </td>
+                    <td class="text-success">Oct 22, 2023</td>
+                    <td><span class="badge text-bg-success-subtle text-success-emphasis">Completed</span></td>
+                    <td><span class="badge text-bg-success-subtle text-success-emphasis">Low</span></td>
+                    <td class="text-end"><a href="#" class="btn btn-sm btn-outline-primary">View Details →</a></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="fw-semibold">Client Meeting</div>
+                        <small class="text-body-secondary">Project Kickoff</small>
+                    </td>
+                    <td>Oct 26, 2023</td>
+                    <td><span class="badge text-bg-secondary-subtle text-secondary-emphasis">Pending</span></td>
+                    <td><span class="badge text-bg-danger-subtle text-danger-emphasis">High</span></td>
+                    <td class="text-end"><a href="#" class="btn btn-sm btn-outline-primary">View Details →</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<section class="visually-hidden">
+    Content placeholder
+</section>
