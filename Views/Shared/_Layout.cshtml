@@ -50,7 +50,7 @@
                     {
                         <a class="nav-link @(currentArea == "Identity" && currentPage == "/Account/Login" ? "active" : "")" asp-area="Identity" asp-page="/Account/Login" asp-route-returnUrl="/tasks/create"><i class="bi bi-plus-circle me-2"></i>Create Task</a>
                     }
-                    <a class="nav-link @(currentController == "Home" && currentAction == "Privacy" ? "active" : "")" asp-area="" asp-controller="Home" asp-action="Privacy"><i class="bi bi-graph-up me-2"></i>Reports</a>
+                    @* <a class="nav-link @(currentController == "Home" && currentAction == "Privacy" ? "active" : "")" asp-area="" asp-controller="Home" asp-action="Privacy"><i class="bi bi-graph-up me-2"></i>Reports</a> *@
                 </nav>
 
                 <div class="sidebar-footer border-top pt-3 mt-auto d-flex flex-column gap-2">
