@@ -429,4 +429,5 @@ c:\Users\Dev Girma\TaskManagementSystem\bin\Debug\net10.0\artifacts\buildcheck\T
 c:\Users\Dev Girma\TaskManagementSystem\bin\Debug\net10.0\artifacts\buildcheck\TaskManagementSystem.runtimeconfig.json
 c:\Users\Dev Girma\TaskManagementSystem\bin\Debug\net10.0\artifacts\buildcheck\TaskManagementSystem.staticwebassets.endpoints.json
 c:\Users\Dev Girma\TaskManagementSystem\bin\Debug\net10.0\artifacts\buildcheck\TaskManagementSystem.staticwebassets.runtime.json
-c:\Users\Dev Girma\TaskManagementSystem\obj\Debug\net10.0\compressed\8tfljht93h-{0}-cft3z86jmp-cft3z86jmp.gz
+c:\Users\Dev Girma\TaskManagementSystem\obj\Debug\net10.0\compressed\1cp047rr2s-{0}-uy4ri4itpx-uy4ri4itpx.gz
+c:\Users\Dev Girma\TaskManagementSystem\obj\Debug\net10.0\compressed\8tfljht93h-{0}-bo1v9vzgk5-bo1v9vzgk5.gz

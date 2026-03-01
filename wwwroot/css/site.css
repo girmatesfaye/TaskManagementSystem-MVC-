@@ -83,12 +83,26 @@ body {
   color: var(--bs-danger-text-emphasis);
 }
 
+.app-sidebar {
+  width: 210px;
+  min-width: 210px;
+}
+
+.sidebar-brand small {
+  display: none;
+}
+
 .app-sidebar .nav-link {
   color: var(--bs-body-color);
   border-radius: 0.5rem;
   transition:
     background-color 0.2s ease,
     color 0.2s ease;
+}
+
+.app-sidebar .nav-link i {
+  width: 1rem;
+  text-align: center;
 }
 
 .app-sidebar .nav-link:hover {
