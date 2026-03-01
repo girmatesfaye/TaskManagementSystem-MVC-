@@ -1,0 +1,1 @@
+TaskMaster is a simple ASP.NET Core MVC task management app that helps users create, edit, organize, and track their daily tasks. It includes user authentication, task status management (Pending/Completed), priority and due date tracking, search, and a clean dashboard UI built with Bootstrap/Bootswatch.
