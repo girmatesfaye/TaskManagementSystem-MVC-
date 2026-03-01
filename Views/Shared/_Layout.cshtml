@@ -29,8 +29,8 @@
                 <a class="navbar-brand m-0 d-flex align-items-center gap-2" asp-area="" asp-controller="Home" asp-action="Index">
                     <span class="brand-logo">■</span>
                     <span>
-                        <span class="d-block fw-semibold">TaskMaster</span>
-                        <small class="text-body-secondary">Admin Console</small>
+                        <span class="d-block fw-semibold">Task Master</span>
+                        <small class="text-body-secondary">Admin Control Panel</small>
                     </span>
                 </a>
             </div>
@@ -51,7 +51,7 @@
                 </nav>
 
                 <div class="sidebar-footer border-top pt-3 mt-auto d-flex flex-column gap-2">
-                    <a class="nav-link @(currentController == "Home" && currentAction == "Privacy" ? "active" : "")" asp-area="" asp-controller="Home" asp-action="Privacy">Settings</a>
+                    @* <a class="nav-link @(currentController == "Home" && currentAction == "Privacy" ? "active" : "")" asp-area="" asp-controller="Home" asp-action="Privacy">Settings</a> *@
                     <partial name="_LoginPartial" />
                 </div>
             </div>
