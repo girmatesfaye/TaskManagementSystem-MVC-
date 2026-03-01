@@ -33,21 +33,20 @@
                 <nav class="nav nav-pills flex-column gap-2">
                     <a class="nav-link active" asp-area="" asp-controller="Home" asp-action="Index">Dashboard</a>
                     <a class="nav-link" asp-area="" asp-controller="Tasks" asp-action="Index">My Tasks</a>
-                    <a class="nav-link" asp-area="" asp-controller="Tasks" asp-action="Create">Create Task</a>
+                    @if (User.Identity?.IsAuthenticated == true)
+                    {
+                        <a class="nav-link" asp-area="" asp-controller="Tasks" asp-action="Create">Create Task</a>
+                    }
+                    else
+                    {
+                        <a class="nav-link" asp-area="Identity" asp-page="/Account/Login" asp-route-returnUrl="/tasks/create">Create Task</a>
+                    }
                     <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">Reports</a>
                 </nav>
 
                 <div class="sidebar-footer border-top pt-3 mt-auto d-flex flex-column gap-2">
                     <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">Settings</a>
-                    <a class="nav-link text-danger" asp-area="" asp-controller="Home" asp-action="Index">Logout</a>
-
-                    <div class="user-chip border rounded-3 p-2 d-flex align-items-center gap-2 mt-2">
-                        <div class="avatar">JD</div>
-                        <div>
-                            <div class="fw-semibold small">Jane Doe</div>
-                            <small class="text-body-secondary">Admin</small>
-                        </div>
-                    </div>
+                    <partial name="_LoginPartial" />
                 </div>
             </div>
         </aside>

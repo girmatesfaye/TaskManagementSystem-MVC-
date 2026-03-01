@@ -1,42 +1,48 @@
-﻿@{
+﻿@model TaskManagementSystem.Models.DashboardViewModel
+
+@{
     ViewData["Title"] = "Dashboard";
+    var total = Model.TotalTasks;
+    var completedPct = total == 0 ? 0 : (int)Math.Round((double)Model.CompletedTasks * 100 / total);
+    var pendingPct = total == 0 ? 0 : (int)Math.Round((double)Model.PendingTasks * 100 / total);
+    var overduePct = total == 0 ? 0 : (int)Math.Round((double)Model.OverdueTasks * 100 / total);
 }
 
 <section class="dashboard-grid d-grid gap-3 mb-4">
     <article class="metric-card border rounded-3 p-3">
         <div class="d-flex justify-content-between align-items-start mb-2">
             <span class="metric-icon metric-blue">■</span>
-            <span class="badge text-bg-success-subtle text-success-emphasis">+12%</span>
+            <span class="badge text-bg-secondary-subtle text-secondary-emphasis">100%</span>
         </div>
         <small class="text-body-secondary d-block">Total Tasks</small>
-        <h2 class="mb-0">124</h2>
+        <h2 class="mb-0">@Model.TotalTasks</h2>
     </article>
 
     <article class="metric-card border rounded-3 p-3">
         <div class="d-flex justify-content-between align-items-start mb-2">
             <span class="metric-icon metric-green">✓</span>
-            <span class="badge text-bg-success-subtle text-success-emphasis">+5%</span>
+            <span class="badge text-bg-success-subtle text-success-emphasis">@completedPct%</span>
         </div>
         <small class="text-body-secondary d-block">Completed</small>
-        <h2 class="mb-0">86</h2>
+        <h2 class="mb-0">@Model.CompletedTasks</h2>
     </article>
 
     <article class="metric-card border rounded-3 p-3">
         <div class="d-flex justify-content-between align-items-start mb-2">
             <span class="metric-icon metric-amber">◔</span>
-            <span class="badge text-bg-danger-subtle text-danger-emphasis">-2%</span>
+            <span class="badge text-bg-warning-subtle text-warning-emphasis">@pendingPct%</span>
         </div>
         <small class="text-body-secondary d-block">Pending</small>
-        <h2 class="mb-0">32</h2>
+        <h2 class="mb-0">@Model.PendingTasks</h2>
     </article>
 
     <article class="metric-card border rounded-3 p-3">
         <div class="d-flex justify-content-between align-items-start mb-2">
             <span class="metric-icon metric-red">⚠</span>
-            <span class="badge text-bg-secondary-subtle text-secondary-emphasis">0%</span>
+            <span class="badge text-bg-danger-subtle text-danger-emphasis">@overduePct%</span>
         </div>
         <small class="text-body-secondary d-block">Overdue</small>
-        <h2 class="mb-0">6</h2>
+        <h2 class="mb-0">@Model.OverdueTasks</h2>
     </article>
 </section>
 
@@ -58,46 +64,52 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>
-                        <div class="fw-semibold">Fix Login Bug</div>
-                        <small class="text-body-secondary">Authentication Module</small>
-                    </td>
-                    <td>Oct 24, 2023</td>
-                    <td><span class="badge text-bg-primary-subtle text-primary-emphasis">In Progress</span></td>
-                    <td><span class="badge text-bg-danger-subtle text-danger-emphasis">High</span></td>
-                    <td class="text-end"><a href="#" class="btn btn-sm btn-outline-primary">View Details →</a></td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="fw-semibold">Update Homepage</div>
-                        <small class="text-body-secondary">Frontend Redesign</small>
-                    </td>
-                    <td>Oct 25, 2023</td>
-                    <td><span class="badge text-bg-secondary-subtle text-secondary-emphasis">Pending</span></td>
-                    <td><span class="badge text-bg-warning-subtle text-warning-emphasis">Medium</span></td>
-                    <td class="text-end"><a href="#" class="btn btn-sm btn-outline-primary">View Details →</a></td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="fw-semibold">Database Backup</div>
-                        <small class="text-body-secondary">Maintenance</small>
-                    </td>
-                    <td class="text-success">Oct 22, 2023</td>
-                    <td><span class="badge text-bg-success-subtle text-success-emphasis">Completed</span></td>
-                    <td><span class="badge text-bg-success-subtle text-success-emphasis">Low</span></td>
-                    <td class="text-end"><a href="#" class="btn btn-sm btn-outline-primary">View Details →</a></td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="fw-semibold">Client Meeting</div>
-                        <small class="text-body-secondary">Project Kickoff</small>
-                    </td>
-                    <td>Oct 26, 2023</td>
-                    <td><span class="badge text-bg-secondary-subtle text-secondary-emphasis">Pending</span></td>
-                    <td><span class="badge text-bg-danger-subtle text-danger-emphasis">High</span></td>
-                    <td class="text-end"><a href="#" class="btn btn-sm btn-outline-primary">View Details →</a></td>
-                </tr>
+                @if (!Model.RecentTasks.Any())
+                {
+                    <tr>
+                        <td colspan="5" class="text-center text-body-secondary py-4">No tasks available yet.</td>
+                    </tr>
+                }
+                else
+                {
+                    @foreach (var task in Model.RecentTasks)
+                    {
+                        <tr>
+                            <td>
+                                <div class="fw-semibold">@task.Title</div>
+                                <small class="text-body-secondary">@task.Description</small>
+                            </td>
+                            <td>@task.DueDate.ToString("MMM dd, yyyy")</td>
+                            <td>
+                                @if (task.Status.Equals("Completed", StringComparison.OrdinalIgnoreCase))
+                                {
+                                    <span class="badge text-bg-success-subtle text-success-emphasis">Completed</span>
+                                }
+                                else
+                                {
+                                    <span class="badge text-bg-secondary-subtle text-secondary-emphasis">Pending</span>
+                                }
+                            </td>
+                            <td>
+                                @if (task.Priority.Equals("High", StringComparison.OrdinalIgnoreCase))
+                                {
+                                    <span class="badge text-bg-danger-subtle text-danger-emphasis">High</span>
+                                }
+                                else if (task.Priority.Equals("Medium", StringComparison.OrdinalIgnoreCase))
+                                {
+                                    <span class="badge text-bg-warning-subtle text-warning-emphasis">Medium</span>
+                                }
+                                else
+                                {
+                                    <span class="badge text-bg-success-subtle text-success-emphasis">Low</span>
+                                }
+                            </td>
+                            <td class="text-end">
+                                <a asp-controller="Tasks" asp-action="Details" asp-route-id="@task.Id" class="btn btn-sm btn-outline-primary">View Details →</a>
+                            </td>
+                        </tr>
+                    }
+                }
             </tbody>
         </table>
     </div>

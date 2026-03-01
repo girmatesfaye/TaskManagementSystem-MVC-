@@ -7,7 +7,14 @@
 <section class="recent-section premium-surface border rounded-3 bg-body">
 	<div class="recent-header px-3 py-3 border-bottom">
 		<h5 class="mb-0">My Tasks</h5>
-		<a asp-controller="Tasks" asp-action="Create" class="btn btn-sm btn-primary">Create Task</a>
+		@if (User.Identity?.IsAuthenticated == true)
+		{
+			<a asp-controller="Tasks" asp-action="Create" class="btn btn-sm btn-primary">Create Task</a>
+		}
+		else
+		{
+			<a asp-area="Identity" asp-page="/Account/Login" asp-route-returnUrl="/tasks/create" class="btn btn-sm btn-primary">Create Task</a>
+		}
 	</div>
 
 	@if (!Model.Any())

@@ -1,14 +1,45 @@
 using System.Diagnostics;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using TaskManagementSystem.Models;
 
 namespace TaskManagementSystem.Controllers;
 
 public class HomeController : Controller
 {
-    public IActionResult Index()
+    private readonly ApplicationDbContext _context;
+    private readonly UserManager<IdentityUser> _userManager;
+
+    public HomeController(ApplicationDbContext context, UserManager<IdentityUser> userManager)
     {
-        return View();
+        _context = context;
+        _userManager = userManager;
+    }
+
+    public async Task<IActionResult> Index()
+    {
+        var model = new DashboardViewModel();
+        var userId = _userManager.GetUserId(User);
+
+        if (string.IsNullOrEmpty(userId))
+        {
+            return View(model);
+        }
+
+        var userTasks = _context.TaskItems.Where(t => t.UserId == userId);
+        var today = DateTime.UtcNow.Date;
+
+        model.TotalTasks = await userTasks.CountAsync();
+        model.CompletedTasks = await userTasks.CountAsync(t => t.Status == "Completed");
+        model.PendingTasks = await userTasks.CountAsync(t => t.Status != "Completed");
+        model.OverdueTasks = await userTasks.CountAsync(t => t.DueDate.Date < today && t.Status != "Completed");
+        model.RecentTasks = await userTasks
+            .OrderByDescending(t => t.CreatedAt)
+            .Take(5)
+            .ToListAsync();
+
+        return View(model);
     }
 
     public IActionResult Privacy()
