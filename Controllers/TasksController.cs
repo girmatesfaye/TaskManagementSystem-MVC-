@@ -93,6 +93,11 @@ public class TasksController : Controller
 		taskItem.Priority = string.IsNullOrWhiteSpace(taskItem.Priority)
 			? "Medium"
 			: taskItem.Priority.Trim();
+		taskItem.Status = "Pending";
+		taskItem.UserId = userId;
+
+		ModelState.Remove(nameof(TaskItem.Status));
+		ModelState.Remove(nameof(TaskItem.UserId));
 
 		if (string.IsNullOrWhiteSpace(taskItem.Title))
 		{
@@ -104,9 +109,7 @@ public class TasksController : Controller
 			return View(taskItem);
 		}
 
-		taskItem.Status = "Pending";
 		taskItem.CreatedAt = DateTime.UtcNow;
-		taskItem.UserId = userId;
 
 		_context.Add(taskItem);
 		await _context.SaveChangesAsync();
@@ -136,7 +139,7 @@ public class TasksController : Controller
 	// POST /tasks/edit/{id}: validates and updates only the signed-in user's task, then redirects.
 	[HttpPost("/tasks/edit/{id:int}")]
 	[ValidateAntiForgeryToken]
-	public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Description,DueDate,Priority")] TaskItem taskItem)
+	public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Description,DueDate,Priority,Status")] TaskItem taskItem)
 	{
 		var userId = _userManager.GetUserId(User);
 		if (string.IsNullOrEmpty(userId))
@@ -161,6 +164,11 @@ public class TasksController : Controller
 		existingTask.Priority = string.IsNullOrWhiteSpace(taskItem.Priority)
 			? "Medium"
 			: taskItem.Priority.Trim();
+		existingTask.Status = string.IsNullOrWhiteSpace(taskItem.Status)
+			? "Pending"
+			: taskItem.Status.Trim();
+
+		ModelState.Remove(nameof(TaskItem.UserId));
 
 		if (string.IsNullOrWhiteSpace(existingTask.Title))
 		{
