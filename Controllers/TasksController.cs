@@ -15,18 +15,33 @@ public class TasksController : Controller
 		_userManager = userManager;
 	}
 
-	// GET /tasks: loads only the signed-in user's tasks, applies ordering, and sends the list to the view.
+	// GET /tasks: loads only the signed-in user's tasks, applies ordering, filter and sends the list to the view.
 	[HttpGet("/tasks")]
-	public async Task<IActionResult> Index()
+	public async Task<IActionResult> Index(string searchString)
 	{
 		var userId = _userManager.GetUserId(User);
+
 		if (string.IsNullOrEmpty(userId))
 		{
 			return Challenge();
 		}
+		if(_context.TaskItems == null)
+		{
+			return Problem("Entity set 'ApplicationDbContext.TaskItems'  is null.");
+		}
 
-		var tasks = await _context.TaskItems
-			.Where(t => t.UserId == userId)
+		var tasksQuery = _context.TaskItems
+			.Where(t => t.UserId == userId);
+
+		// Apply search filter
+		if (!string.IsNullOrEmpty(searchString))
+		{
+			tasksQuery = tasksQuery.Where(t =>
+				t.Title.ToUpper().Contains(searchString.ToUpper()) ||
+				t.Description.ToUpper().Contains(searchString.ToUpper()));
+		}
+
+		var tasks = await tasksQuery
 			.OrderBy(t => t.DueDate)
 			.ThenByDescending(t => t.CreatedAt)
 			.ToListAsync();
