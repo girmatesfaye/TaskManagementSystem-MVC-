@@ -1,0 +1,22 @@
+@model TaskItem
+<h2 class="mb-4">Task Details</h2>
+
+<div class="card shadow-sm">
+    <div class="card-body">
+        <h4 class="card-title">@Model.Title</h4>
+
+        <p class="text-muted">@Model.Description</p>
+
+        <hr />
+
+        <p><strong>Status:</strong> @Model.Status</p>
+        <p><strong>Due Date:</strong> @Model.DueDate.ToString("yyyy-MM-dd")</p>
+        <p><strong>Priority:</strong> @Model.Priority</p>
+    </div>
+
+    <div class="card-footer text-end">
+        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Edit</a>
+        <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger">Delete</a>
+        <a asp-action="Index" class="btn btn-secondary">Back</a>
+    </div>
+</div>
