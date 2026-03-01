@@ -113,7 +113,7 @@ public class TasksController : Controller
 
 		_context.Add(taskItem);
 		await _context.SaveChangesAsync();
-
+        TempData["SuccessMessage"] = "Task created successfully!";
 		return RedirectToAction(nameof(Index));
 	}
 
@@ -128,6 +128,7 @@ public class TasksController : Controller
 		}
 
 		var taskItem = await _context.TaskItems.FirstOrDefaultAsync(t => t.Id == id && t.UserId == userId);
+
 		if (taskItem == null)
 		{
 			return NotFound();
@@ -194,7 +195,7 @@ public class TasksController : Controller
 
 			throw;
 		}
-
+		TempData["SuccessMessage"] = "Task updated successfully!";
 		return RedirectToAction(nameof(Index));
 	}
 
@@ -239,6 +240,7 @@ public class TasksController : Controller
 		_context.TaskItems.Remove(taskItem);
 		await _context.SaveChangesAsync();
 
+		TempData["SuccessMessage"] = "Task deleted successfully!";
 		return RedirectToAction(nameof(Index));
 	}
 
@@ -266,6 +268,7 @@ public class TasksController : Controller
 
 		await _context.SaveChangesAsync();
 
+		TempData["SuccessMessage"] = "Task status updated successfully!";
 		return RedirectToAction(nameof(Index));
 	}
 
