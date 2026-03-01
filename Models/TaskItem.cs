@@ -22,7 +22,7 @@ public class TaskItem
     public string Priority { get; set; } = string.Empty;
 
     [Required(ErrorMessage = "Status is required.")]
-    [RegularExpression("Pending|InProgress|Completed", ErrorMessage = "Status must be Pending, InProgress, or Completed.")]
+    [RegularExpression("Pending|Completed", ErrorMessage = "Status must be Pending or Completed.")]
     public string Status { get; set; } = string.Empty;
 
     public DateTime CreatedAt { get; set; }
