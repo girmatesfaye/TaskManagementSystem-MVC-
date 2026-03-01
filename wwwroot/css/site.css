@@ -116,6 +116,38 @@ body {
   font-weight: 500;
 }
 
+.tasks-table {
+  min-width: 960px;
+  table-layout: fixed;
+}
+
+.tasks-table .task-column {
+  width: 42%;
+}
+
+.tasks-table .task-title,
+.tasks-table .task-description {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tasks-table .action-column {
+  width: 1%;
+  white-space: nowrap;
+}
+
+.tasks-table .task-actions {
+  gap: 0.25rem;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+}
+
+.tasks-table .task-actions .btn {
+  white-space: nowrap;
+}
+
 @media (min-width: 768px) {
   .dashboard-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
