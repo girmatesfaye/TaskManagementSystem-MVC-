@@ -17,6 +17,12 @@
     <link rel="stylesheet" href="~/TaskManagementSystem.styles.css" asp-append-version="true" />
 </head>
 <body>
+    @{
+        var currentController = ViewContext.RouteData.Values["controller"]?.ToString();
+        var currentAction = ViewContext.RouteData.Values["action"]?.ToString();
+        var currentArea = ViewContext.RouteData.Values["area"]?.ToString();
+        var currentPage = ViewContext.RouteData.Values["page"]?.ToString();
+    }
     <div class="app-shell d-flex min-vh-100">
         <aside class="app-sidebar border-end d-flex flex-column">
             <div class="sidebar-brand p-3 border-bottom">
@@ -31,21 +37,21 @@
 
             <div class="p-3 flex-grow-1 d-flex flex-column collapse d-md-flex" id="sidebarNav">
                 <nav class="nav nav-pills flex-column gap-2">
-                    <a class="nav-link active" asp-area="" asp-controller="Home" asp-action="Index">Dashboard</a>
-                    <a class="nav-link" asp-area="" asp-controller="Tasks" asp-action="Index">My Tasks</a>
+                    <a class="nav-link @(currentController == "Home" && currentAction == "Index" ? "active" : "")" asp-area="" asp-controller="Home" asp-action="Index">Dashboard</a>
+                    <a class="nav-link @(currentController == "Tasks" && currentAction == "Index" ? "active" : "")" asp-area="" asp-controller="Tasks" asp-action="Index">My Tasks</a>
                     @if (User.Identity?.IsAuthenticated == true)
                     {
-                        <a class="nav-link" asp-area="" asp-controller="Tasks" asp-action="Create">Create Task</a>
+                        <a class="nav-link @(currentController == "Tasks" && currentAction == "Create" ? "active" : "")" asp-area="" asp-controller="Tasks" asp-action="Create">Create Task</a>
                     }
                     else
                     {
-                        <a class="nav-link" asp-area="Identity" asp-page="/Account/Login" asp-route-returnUrl="/tasks/create">Create Task</a>
+                        <a class="nav-link @(currentArea == "Identity" && currentPage == "/Account/Login" ? "active" : "")" asp-area="Identity" asp-page="/Account/Login" asp-route-returnUrl="/tasks/create">Create Task</a>
                     }
-                    <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">Reports</a>
+                    <a class="nav-link @(currentController == "Home" && currentAction == "Privacy" ? "active" : "")" asp-area="" asp-controller="Home" asp-action="Privacy">Reports</a>
                 </nav>
 
                 <div class="sidebar-footer border-top pt-3 mt-auto d-flex flex-column gap-2">
-                    <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">Settings</a>
+                    <a class="nav-link @(currentController == "Home" && currentAction == "Privacy" ? "active" : "")" asp-area="" asp-controller="Home" asp-action="Privacy">Settings</a>
                     <partial name="_LoginPartial" />
                 </div>
             </div>

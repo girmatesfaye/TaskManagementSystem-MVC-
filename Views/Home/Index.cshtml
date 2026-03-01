@@ -53,7 +53,7 @@
     </div>
 
     <div class="table-responsive">
-        <table class="table premium-table mb-0 align-middle">
+        <table class="table premium-table recent-tasks-table mb-0 align-middle">
             <thead>
                 <tr>
                     <th class="text-uppercase small text-body-secondary">Task Name</th>
@@ -75,9 +75,9 @@
                     @foreach (var task in Model.RecentTasks)
                     {
                         <tr>
-                            <td>
-                                <div class="fw-semibold">@task.Title</div>
-                                <small class="text-body-secondary">@task.Description</small>
+                            <td class="task-column">
+                                <div class="fw-semibold task-title">@task.Title</div>
+                                <small class="text-body-secondary task-description" title="@task.Description">@task.Description</small>
                             </td>
                             <td>@task.DueDate.ToString("MMM dd, yyyy")</td>
                             <td>
@@ -104,8 +104,8 @@
                                     <span class="badge text-bg-success-subtle text-success-emphasis">Low</span>
                                 }
                             </td>
-                            <td class="text-end">
-                                <a asp-controller="Tasks" asp-action="Details" asp-route-id="@task.Id" class="btn btn-sm btn-outline-primary">View Details →</a>
+                            <td class="text-end action-column">
+                                <a asp-controller="Tasks" asp-action="Details" asp-route-id="@task.Id" class="btn btn-sm btn-outline-primary view-details-btn">View Details →</a>
                             </td>
                         </tr>
                     }

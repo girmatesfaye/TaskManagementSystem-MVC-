@@ -213,7 +213,6 @@ C:\Users\Dev Girma\TaskManagementSystem\obj\Debug\net10.0\compressed\a3ygkwa5zy-
 C:\Users\Dev Girma\TaskManagementSystem\obj\Debug\net10.0\compressed\nezrqnk58p-{0}-muycvpuwrr-muycvpuwrr.gz
 C:\Users\Dev Girma\TaskManagementSystem\obj\Debug\net10.0\compressed\v0zgfp0y55-{0}-87fc7y1x7t-87fc7y1x7t.gz
 C:\Users\Dev Girma\TaskManagementSystem\obj\Debug\net10.0\compressed\yfc7ypekbg-{0}-mlv21k5csn-mlv21k5csn.gz
-C:\Users\Dev Girma\TaskManagementSystem\obj\Debug\net10.0\compressed\8tfljht93h-{0}-mj7vxbgfsw-mj7vxbgfsw.gz
 C:\Users\Dev Girma\TaskManagementSystem\obj\Debug\net10.0\compressed\6abbwoxm5s-{0}-61n19gt1b8-61n19gt1b8.gz
 C:\Users\Dev Girma\TaskManagementSystem\obj\Debug\net10.0\compressed\3u6lzl4f3k-{0}-xtxxf3hu2r-xtxxf3hu2r.gz
 C:\Users\Dev Girma\TaskManagementSystem\obj\Debug\net10.0\compressed\oedy716gku-{0}-bqjiyaj88i-bqjiyaj88i.gz
@@ -430,4 +429,4 @@ c:\Users\Dev Girma\TaskManagementSystem\bin\Debug\net10.0\artifacts\buildcheck\T
 c:\Users\Dev Girma\TaskManagementSystem\bin\Debug\net10.0\artifacts\buildcheck\TaskManagementSystem.runtimeconfig.json
 c:\Users\Dev Girma\TaskManagementSystem\bin\Debug\net10.0\artifacts\buildcheck\TaskManagementSystem.staticwebassets.endpoints.json
 c:\Users\Dev Girma\TaskManagementSystem\bin\Debug\net10.0\artifacts\buildcheck\TaskManagementSystem.staticwebassets.runtime.json
-C:\Users\Dev Girma\TaskManagementSystem\obj\Debug\net10.0\compressed\8tfljht93h-{0}-wui8g5xeov-wui8g5xeov.gz
+c:\Users\Dev Girma\TaskManagementSystem\obj\Debug\net10.0\compressed\8tfljht93h-{0}-cft3z86jmp-cft3z86jmp.gz

@@ -60,7 +60,7 @@
 							</td>
 							<td class="text-end action-column">
 								<div class="task-actions d-inline-flex justify-content-end">
-									<a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-outline-primary">Details</a>
+									@* <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-outline-primary">Details</a> *@
 									<a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-secondary">Edit</a>
 									<form asp-action="ToggleStatus" asp-route-id="@item.Id" method="post" class="d-inline">
 										@Html.AntiForgeryToken()
