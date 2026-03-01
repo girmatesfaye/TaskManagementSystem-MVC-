@@ -86,6 +86,27 @@ body {
 .app-sidebar {
   width: 210px;
   min-width: 210px;
+  min-height: 100vh;
+}
+
+.app-main {
+  min-height: 100vh;
+}
+
+.sidebar-brand,
+.app-topbar {
+  min-height: 72px;
+}
+
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.app-topbar {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
 }
 
 .sidebar-brand small {
@@ -225,20 +246,6 @@ body {
 }
 
 @media (max-width: 767.98px) {
-  .app-sidebar {
-    width: 100%;
-    border-right: 0;
-    border-bottom: 1px solid var(--bs-border-color);
-  }
-
-  #sidebarNav {
-    border-top: 1px solid var(--bs-border-color-translucent);
-  }
-
-  #sidebarNav:not(.show) {
-    display: none !important;
-  }
-
   .topbar-tools .form-control {
     width: 150px;
   }

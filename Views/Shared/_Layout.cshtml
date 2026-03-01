@@ -28,7 +28,7 @@
     }
     <div class="app-shell d-flex min-vh-100">
         <aside class="app-sidebar border-end d-flex flex-column">
-            <div class="sidebar-brand p-3 border-bottom">
+            <div class="sidebar-brand border-bottom">
                 <a class="navbar-brand m-0 d-flex align-items-center gap-2" asp-area="" asp-controller="Home" asp-action="Index">
                     <span class="brand-logo">■</span>
                     <span>
@@ -38,7 +38,7 @@
                 </a>
             </div>
 
-            <div class="p-3 flex-grow-1 d-flex flex-column collapse d-md-flex" id="sidebarNav">
+            <div class="p-3 flex-grow-1 d-flex flex-column" id="sidebarNav">
                 <nav class="nav nav-pills flex-column gap-2">
                     <a class="nav-link @(currentController == "Home" && currentAction == "Index" ? "active" : "")" asp-area="" asp-controller="Home" asp-action="Index"><i class="bi bi-speedometer2 me-2"></i>Dashboard</a>
                     <a class="nav-link @(currentController == "Tasks" && currentAction == "Index" ? "active" : "")" asp-area="" asp-controller="Tasks" asp-action="Index"><i class="bi bi-list-task me-2"></i>My Tasks</a>
@@ -62,18 +62,9 @@
 
         <div class="app-main flex-grow-1 d-flex flex-column">
             <nav class="navbar border-bottom px-3 py-2 app-topbar">
-                <button class="btn btn-sm btn-outline-secondary d-md-none me-2"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#sidebarNav"
-                        aria-controls="sidebarNav"
-                        aria-expanded="false"
-                        aria-label="Toggle sidebar navigation">
-                    ☰
-                </button>
                 <span class="navbar-text fw-semibold">Dashboard Overview</span>
                 <div class="d-flex align-items-center gap-2 ms-auto topbar-tools">
-                    <form asp-controller="Tasks" asp-action="Index" method="get" class="mb-3 d-flex gap-2">
+                    <form asp-controller="Tasks" asp-action="Index" method="get" class="mb-0 d-flex gap-2">
                         <input type="text"
                             name="searchString"
                             value="@Context.Request.Query["searchString"]"
